@@ -1,0 +1,18 @@
+// [python quickstart](https://grpc.io/docs/quickstart/python.html#run-a-grpc-application)
+// python -m grpc_tools.protoc --python_out=. --grpc_python_out=. -I. routeguide.proto
+
+syntax = "proto3";
+package label_class;
+message Label {
+    string label_message=1;
+}
+
+message Label_class {
+    string label_message=1;
+    string type_class=2;
+    float similarity=3;
+}
+
+service LabelType {
+    rpc Run_classifier(stream Label) returns (stream Label_class) {}
+}
